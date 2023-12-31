@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind</title>
+    <link rel="icon" href="../img/banner-logo.png">
+    <link rel="stylesheet" href="../css/animate-min.css" type="text/css">
+    <link rel="stylesheet" href="../css/animate.css" type="text/css">
+    <link rel="stylesheet" href="../css/slick.css" type="text/css">
+    <link rel="stylesheet" href="../css/slick-theme.css" type="text/css">
+    <link rel="stylesheet" href="../icomoon/style.css" type="text/css">
+    <link rel="stylesheet" href="../fonts/nunito/stylesheet.css" type="text/css">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <style>
+        .container {
+            padding: 0 25px !important;
+        }
+
+        .services-inner .service-items a::after,
+        .blog-inner .blog-items a::after {
+            content: '';
+            background-color: #4f46e5;
+            width: 0;
+            height: 1px;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            transition: 0.6s all;
+        }
+
+        .services-inner .service-items a:hover::after,
+        .blog-inner .blog-items a:hover:after {
+            width: 100%;
+        }
+
+        .portfolio-items:hover .portfolio-content, .portfolio-items:hover .portfolio-cam {
+            display: block !important;
+        }
+
+        .header-active {
+            background-color: white !important;
+            padding: 12px !important;
+            position: fixed;
+            transition: 0.4s all;
+        }
+
+        .header-a-active {
+            color: black !important;
+            transition: 0.5s all;
+            font-weight: 700 !important;
+        }
+
+        .header-a-active:hover {
+            color: #4f46e5 !important;
+        }
+
+        .light-active {
+            display: none !important;
+        }
+
+        .dark-active {
+            display: block !important;
+        }
+
+        .icon-active a:nth-child(2) {
+            background-color: rgba(79, 70, 229, 0.1);
+            color: #4f46e5;
+            padding: 12px;
+            border-radius: 50%;
+            transition: 0.5s all;
+        }
+
+        .icon-active a:nth-child(2):hover {
+            background-color: #4f46e5;
+            color: white;
+        }
+
+        .icon-active a:last-child {
+            background-color: #4f46e5;
+            color: white;
+            padding: 12px;
+            border-radius: 50%;
+        }
+
+        header nav ul li:nth-child(2):hover .mega-menu {
+            visibility: visible !important;
+            transform: translateY(0) !important;
+        }
+
+        header nav ul li:nth-child(3):hover .drop-down {
+            visibility: visible !important;
+            transform: translateY(0) !important;
+        }
+
+        .slick-dots li button::before {
+            background-color: #4f46e5;
+            border-radius: 50%;
+            width: 10px !important;
+            height: 10px !important;
+            margin-top: 15px !important;
+        }
+
+        .review-inner .review-items .review-content::after {
+            content: '';
+            border-bottom: 22px solid transparent;
+            border-inline-end: 22px solid transparent;
+            box-shadow: -4px 2px 2px -1px rgba(0, 0, 0, 0), 2px 2px 2px -1px rgba(0, 0, 0, 0.1) !important;
+            position: absolute;
+            bottom: -4px;
+            transform: rotate(45deg);
+            transform-origin: top left !important;
+            inset-inline-start: 50% !important;
+            z-index: 9 9 9 !important;
+        }
+
+        .custom-shape-divider-bottom-1691375810 {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+
+        .custom-shape-divider-bottom-1691375810 svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 80px;
+        }
+
+        .custom-shape-divider-bottom-1691375810 .shape-fill {
+            fill: #FFFFFF;
+        }
+    </style>
+</head>
+
+<body class="font-nunito">
+
+    <!-- HEADER -->
+
+    <header
+        class=" py-4 absolute top-0 left-0 right-0 z-20 bg-white lg:bg-transparent transition duration-200 ease-linear">
+        <div class="container mx-auto">
+            <div class="flex items-center justify-between">
+                <a href="javascript:void(0)" class="light hidden lg:block">
+                    <img src="../img/logo.png" alt="logo" title="logo">
+                </a>
+                <a href="javascript:void(0)" class="dark block lg:hidden">
+                    <img src="../img/logo-dark.png" alt="logo-dark" title="logo-dark">
+                </a>
+
+                <nav class="absolute top-full bg-white left-0 right-0 lg:static hidden lg:block lg:bg-transparent">
+                    <ul class="flex flex-col pl-12 lg:flex-row lg:pl-0 py-4 lg:py-0">
+                        <li class="pb-4 md:pb-0">
+                            <a href="javascript:void(0)"
+                                class="mx-4 text-sm text-slate-400 font-semibold hover:text-white transition duration-200 ease-linear">HOME</a>
+                        </li>
+                        <li class="pb-4 md:pb-0">
+                            <a href="javascript:void(0)"
+                                class="relative mx-4 text-sm text-slate-400 font-semibold hover:text-white transition duration-200 ease-linear">LANDINGS<span
+                                    class="icon-keyboard_arrow_down ml-1 inline-block font-semibold"></span></a>
+                            <div
+                                class="mega-menu flex justify-between absolute top-full left-0 right-0 mx-8 p-5 bg-white rounded-lg invisible translate-y-6 transition duration-200 ease-linear">
+                                <ul>
+                                    <li>
+                                        <a href="javascript:void(0)"
+                                            class="text-xs font-bold mb-4 inline-block">SAAS</a><span
+                                            class="inline-block bg-green-600 text-[11px] font-semibold text-white ml-2 pt-0.5 px-2 rounded">ANIMATION</span>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" class="text-xs font-bold mb-4 inline-block">CLASSIC
+                                            SAAS</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" class="text-xs font-bold mb-4 inline-block">MODERN
+                                            SAAS</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)"
+                                            class="text-xs font-bold mb-4 inline-block">APPLICATION</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" class="text-xs font-bold mb-4 inline-block">CLASSIC
+                                            APP</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" class="text-xs font-bold mb-4 inline-block">AI
+                                            TOOLS</a><span
+                                            class="inline-block bg-red-600 text-[11px] font-semibold text-white ml-2 pt-0.5 px-2.5 rounded">COMINGSOON</span>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)"
+                                            class="text-xs font-bold mb-4 inline-block">SAMRTWATCH</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)"
+                                            class="text-xs font-bold mb-4 inline-block">MARKETING</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" class="text-xs font-bold mb-4 inline-block">SEO
+                                            AGENCY</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)"
+                                            class="text-xs font-bold mb-4 inline-block">SOFTWARE</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)"
+                                            class="text-xs font-bold mb-4 inline-block">PAYMENTS</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" class="text-xs font-bold">CHARITY</a>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <a href="javascript:void(0)" class="text-xs font-bold mb-4 inline-block">IT
+                                            SOLUTION</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" class="text-xs font-bold mb-4 inline-block">IT
+                                            SOLUTION TWO</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" class="text-xs font-bold mb-4 inline-block">DIGITAL
+                                            AGENCY</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)"
+                                            class="text-xs font-bold mb-4 inline-block">RESTAURENT</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)"
+                                            class="text-xs font-bold mb-4 inline-block">HOSTING</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" class="text-xs font-bold mb-4 inline-block">NFT
+                                            MARKETPLACE</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" class="text-xs font-bold mb-4 inline-block">HOTEL &
+                                            RESORT</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)"
+                                            class="text-xs font-bold mb-4 inline-block">TRAVELS</a>
+                                        <span
+                                            class="inline-block bg-red-600 text-[11px] font-semibold text-white ml-2 pt-0.5 px-2.5 rounded">COMINGSOON</span>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)"
+                                            class="text-xs font-bold mb-4 inline-block">CAFE</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)"
+                                            class="text-xs font-bold mb-4 inline-block">GYM</a><span
+                                            class="inline-block bg-slate-900 text-[11px] font-semibold text-white ml-2 pt-0.5 px-2.5 rounded ">DARK</span>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)"
+                                            class="text-xs font-bold mb-4 inline-block">YOGA</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" class="text-xs font-bold">SPA & SALON</a>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <a href="javascript:void(0)" class="text-xs font-bold mb-4 inline-block">JOB</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)"
+                                            class="text-xs font-bold mb-4 inline-block">STARTUP</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)"
+                                            class="text-xs font-bold mb-4 inline-block">BUSINESS</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)"
+                                            class="text-xs font-bold mb-4 inline-block">CORPORATE</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)"
+                                            class="text-xs font-bold mb-4 inline-block">CORPORATE TWO</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" class="text-xs font-bold mb-4 inline-block">REAL
+                                            ESTATE</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)"
+                                            class="text-xs font-bold mb-4 inline-block">CONSULTING</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)"
+                                            class="text-xs font-bold mb-4 inline-block">INSURANCE</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)"
+                                            class="text-xs font-bold mb-4 inline-block">CONSTRUCTION</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" class="text-xs font-bold mb-4 inline-block">LAW
+                                            FIRM</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" class="text-xs font-bold mb-4">VIDEO</a>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <a href="javascript:void(0)"
+                                            class="text-xs font-bold mb-4 inline-block">PERSONAL</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)"
+                                            class="text-xs font-bold mb-4 inline-block">PORTFOLIO</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)"
+                                            class="text-xs font-bold mb-4 inline-block">PHOTOGRAPHY</a><span
+                                            class="inline-block bg-slate-900 text-[11px] font-semibold text-white ml-2 pt-0.5 px-2.5 rounded ">DARK</span>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)"
+                                            class="text-xs font-bold mb-4 inline-block">STUDIO</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)"
+                                            class="text-xs font-bold mb-4 inline-block">CO-WORKING</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" class="text-xs font-bold mb-4 inline-block">ONLINE
+                                            COURSES</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)"
+                                            class="text-xs font-bold mb-4 inline-block">EVENT/CONFERENCE</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)"
+                                            class="text-xs font-bold mb-4 inline-block">PODCAST</a><span
+                                            class="inline-block bg-red-600 text-[11px] font-semibold text-white ml-2 pt-0.5 px-2.5 rounded">COMINGSOON</span>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)"
+                                            class="text-xs font-bold mb-4 inline-block">HOSPITAL</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" class="text-xs font-bold mb-4 inline-block">PHONE
+                                            NUMBER</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" class="text-xs font-bold">FORUMS</a>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <a href="javascript:void(0)"
+                                            class="text-xs font-bold mb-4 inline-block">SHOP/ECOMMERCE</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)"
+                                            class="text-xs font-bold mb-4 inline-block">CRYPTOCURRENCY</a><span
+                                            class="inline-block bg-slate-900 text-[11px] font-semibold text-white ml-2 pt-0.5 px-2.5 rounded ">DARK</span>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" class="text-xs font-bold mb-4 inline-block">LANDING
+                                            ONE</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" class="text-xs font-bold mb-4 inline-block">LANDING
+                                            TWO</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" class="text-xs font-bold mb-4 inline-block">LANDING
+                                            THREE</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" class="text-xs font-bold mb-4 inline-block">LANDING
+                                            FOUR</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" class="text-xs font-bold mb-4 inline-block">SERVICE
+                                            PROVIDER</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" class="text-xs font-bold mb-4 inline-block">FOOD
+                                            BLOG</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)"
+                                            class="text-xs font-bold mb-4 inline-block">BLOG</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)"
+                                            class="text-xs font-bold mb-4 inline-block">FURNITURE</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" class="text-xs font-bold">LANDING FIVE</a>
+                                        <span
+                                            class="inline-block bg-green-600 text-[11px] font-semibold text-white ml-2 pt-0.5 px-2 rounded">ONEPAGE</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="pb-4 md:pb-0">
+                            <a href="javascript:void(0)"
+                                class="relative mx-4 text-sm text-slate-400 font-semibold hover:text-white transition duration-200 ease-linear">PAGES
+                                <span class="icon-keyboard_arrow_down ml-1 inline-block font-semibold"></span></a>
+                        </li>
+                        <li class="pb-4 md:pb-0">
+                            <a href="javascript:void(0)"
+                                class="mx-4 text-sm text-slate-400 font-semibold hover:text-white transition duration-200 ease-linear">PORTFOLIO<span
+                                    class="icon-keyboard_arrow_down ml-1 inline-block font-semibold"></span></a>
+                        </li>
+                        <li class="pb-4 md:pb-0">
+                            <a href="javascript:void(0)"
+                                class="mx-4 text-sm text-slate-400 font-semibold hover:text-white transition duration-200 ease-linear">DOCS<span
+                                    class="icon-keyboard_arrow_down ml-1 inline-block font-semibold"></span></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)"
+                                class="mx-4 text-sm text-slate-400 font-semibold hover:text-white transition duration-200 ease-linear">CONTACT</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="icon flex">
+                    <a href="javascript:void(0)"
+                        class="toggle-menu inline-block text-white bg-indigo-600 p-3 rounded-md lg:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                            stroke="currentColor" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                        </svg>
+                    </a>
+                    <a href="javascript:void(0)"
+                        class="bg-indigo-600/10 text-indigo-600  lg:bg-white lg:text-black p-3 mx-4 rounded-full inline-block">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M10.343 3.94c.09-.542.56-.94 1.11-.94h1.093c.55 0 1.02.398 1.11.94l.149.894c.07.424.384.764.78.93.398.164.855.142 1.205-.108l.737-.527a1.125 1.125 0 011.45.12l.773.774c.39.389.44 1.002.12 1.45l-.527.737c-.25.35-.272.806-.107 1.204.165.397.505.71.93.78l.893.15c.543.09.94.56.94 1.109v1.094c0 .55-.397 1.02-.94 1.11l-.893.149c-.425.07-.765.383-.93.78-.165.398-.143.854.107 1.204l.527.738c.32.447.269 1.06-.12 1.45l-.774.773a1.125 1.125 0 01-1.449.12l-.738-.527c-.35-.25-.806-.272-1.203-.107-.397.165-.71.505-.781.929l-.149.894c-.09.542-.56.94-1.11.94h-1.094c-.55 0-1.019-.398-1.11-.94l-.148-.894c-.071-.424-.384-.764-.781-.93-.398-.164-.854-.142-1.204.108l-.738.527c-.447.32-1.06.269-1.45-.12l-.773-.774a1.125 1.125 0 01-.12-1.45l.527-.737c.25-.35.273-.806.108-1.204-.165-.397-.505-.71-.93-.78l-.894-.15c-.542-.09-.94-.56-.94-1.109v-1.094c0-.55.398-1.02.94-1.11l.894-.149c.424-.07.765-.383.93-.78.165-.398.143-.854-.107-1.204l-.527-.738a1.125 1.125 0 01.12-1.45l.773-.773a1.125 1.125 0 011.45-.12l.737.527c.35.25.807.272 1.204.107.397-.165.71-.505.78-.929l.15-.894z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                    </a>
+                    <a href="javascript:void(0)"
+                        class="bg-indigo-600 text-white lg:bg-white lg:text-black p-3 rounded-full inline-block">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN -->
+
+    <main>
+
+        <!-- BANNER -->
+
+        <section class="banner relative overflow-hidden" id="top">
+            <iframe
+                src="https://player.vimeo.com/video/33955001?background=1&amp;autoplay=1&amp;loop=1&amp;byline=0&amp;title=0"
+                class="w-screen h-[56.25vw]"></iframe>
+            <div class="bg-black/40 absolute inset-0"></div>
+            <div class="container mx-auto">
+                <div
+                    class="banner-content absolute top-[24%] left-0 right-0 lg:top-1/2 lg:-translate-y-1/2 text-center z-10">
+                    <img src="../img/banner-logo.png" alt="banner-logo" title="banner-logo" class="inline-block">
+                    <h1 class="text-3xl text-white py-3 md:text-4xl lg:text-5xl">We Collaboration Easy & Fast</h1>
+                    <p class="max-w-3xl text-md md:max-w-xl mx-auto lg:text-lg text-slate-400 font-semibold">Launch your
+                        campaign and benefit from our expertise on designing and managing conversion centered Tailwind
+                        CSS html page.</p>
+                    <a href="javscript:void(0)"
+                        class="bg-indigo-700 text-white px-5 py-2 inline-block rounded-md mt-5 lg:mt-8 font-semibold hover:bg-indigo-800 transition duration-500 ease-out">Get
+                        Started</a>
+                </div>
+            </div>
+            <div class="custom-shape-divider-bottom-1691375810">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                    preserveAspectRatio="none">
+                    <path
+                        d="M600,112.77C268.63,112.77,0,65.52,0,7.23V120H1200V7.23C1200,65.52,931.37,112.77,600,112.77Z"
+                        class="shape-fill"></path>
+                </svg>
+            </div>
+
+        </section>
+        <div class="text-center -translate-y-8">
+            <a href="#about" class="bg-white  rounded-full p-3 text-center inline-block shadow-xl">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                    <path fill-rule="evenodd"
+                        d="M12 2.25a.75.75 0 01.75.75v16.19l6.22-6.22a.75.75 0 111.06 1.06l-7.5 7.5a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 111.06-1.06l6.22 6.22V3a.75.75 0 01.75-.75z"
+                        clip-rule="evenodd" />
+                </svg>
+            </a>
+        </div>
+
+
+
+        <!-- ABOUT-US -->
+
+        <section class="about-us mt-20" id="about">
+            <div class="container mx-auto">
+                <div class="flex flex-wrap items-center">
+                    <div class="w-full lg:w-2/5">
+                        <div class="about-us-img relative fadeInLeftBig wow text-center">
+                            <img src="../img/about-us.jpg" alt="about-us" title="about-us"
+                                class="rounded-md inline-block">
+                            <img src="../img/about-us2.jpg" alt="about-us2" title="about-us2"
+                                class="absolute top-[42%] left-[62%] md:left-[59%] lg:left-[67%] w-48 rounded-md inline-block">
+                            <a href="javacsript:void(0)"
+                                class="bg-white text-indigo-600 p-4 inline-block absolute top-[55%] left-[75%] md:left-[69%] lg:left-[84%] rounded-full"><svg
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                    class="w-5 h-5">
+                                    <path fill-rule="evenodd"
+                                        d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-3/5">
+                        <div class="about-us-title fadeInRightBig wow mt-8 md:pl-20 lg:pl-20 xl:pl-24">
+                            <h2 class="text-3xl mb-6">We are the largest <br>Business expert</h2>
+                            <p class="text-gray-400">Start working with Tailwind CSS that can provide everything you
+                                need to generate awareness, drive traffic, connect. Dummy text is text that is used in
+                                the publishing industry or by web designers to occupy the space which will later be
+                                filled with 'real' content. This is required when, for example, the final text is not
+                                yet available. Dummy texts have been in use by typesetters since the 16th century.</p>
+                            <a href="javascript:void(0)"
+                                class="inline-block bg-indigo-600 text-white mt-4 px-5 py-2 rounded-md font-semibold hover:bg-indigo-800 transition duration-500 ease-out">Buy
+                                Now<span class="icon-keyboard_arrow_right align-middle inline-block ml-1"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES -->
+
+        <section class="service my-20">
+            <div class="container mx-auto">
+                <div class="service-title text-center bounceIn wow">
+                    <h5 class="font-bold text-indigo-600 text-sm">SERVICES</h5>
+                    <h2 class="text-4xl font-semibold my-5">What We Offer ?</h2>
+                    <p class="text-base text-gray-400 font-semibold max-w-xl mx-auto">Obeviously I'm a Web Desigrner.
+                        Experienced with all stages of the development cycle for dynamic web project.</p>
+                </div>
+                <div class="services-inner my-14">
+                    <div class="flex flex-wrap">
+                        <div class="w-full md:w-1/2 lg:w-1/3">
+                            <div class="service-items py-6 px-10 mx-3 rounded-xl hover:shadow-xl transition duration-300 ease-out shadow-gray-100 fadeInUp wow"
+                                data-wow-duration="0.7s">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                    stroke="currentColor"
+                                    class="w-[70px] h-[70px] text-indigo-600 bg-indigo-600/10 p-5 rounded-lg shadow-md mb-7">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" />
+                                </svg>
+                                <a href="javacsript:void(0)" class="inline-block text-lg font-semibold">UX / UI
+                                    Design</a>
+                                <p class="text-slate-400 font-semibold text-md mt-3 mb-5">The phrasal sequence of the is
+                                    now so that many campaign and benefit</p>
+                                <a href="javascript:void(0)"
+                                    class="inline-block text-indigo-600 text-base font-semibold align-middle relative">Read
+                                    more<span class="icon-arrow-right2 text-[11px] ml-2"></span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/2 lg:w-1/3">
+                            <div class="service-items py-6 px-10 mx-3 mt-8 sm:mt-0 shadow-xl shadow-gray-100 rounded-xl fadeInUp wow"
+                                data-wow-duration="0.7s" data-wow-delay="0.2s">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                    stroke="currentColor"
+                                    class="w-[70px] h-[70px] text-indigo-600 bg-indigo-600/10 p-5 rounded-lg shadow-md mb-7">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M16.712 4.33a9.027 9.027 0 011.652 1.306c.51.51.944 1.064 1.306 1.652M16.712 4.33l-3.448 4.138m3.448-4.138a9.014 9.014 0 00-9.424 0M19.67 7.288l-4.138 3.448m4.138-3.448a9.014 9.014 0 010 9.424m-4.138-5.976a3.736 3.736 0 00-.88-1.388 3.737 3.737 0 00-1.388-.88m2.268 2.268a3.765 3.765 0 010 2.528m-2.268-4.796a3.765 3.765 0 00-2.528 0m4.796 4.796c-.181.506-.475.982-.88 1.388a3.736 3.736 0 01-1.388.88m2.268-2.268l4.138 3.448m0 0a9.027 9.027 0 01-1.306 1.652c-.51.51-1.064.944-1.652 1.306m0 0l-3.448-4.138m3.448 4.138a9.014 9.014 0 01-9.424 0m5.976-4.138a3.765 3.765 0 01-2.528 0m0 0a3.736 3.736 0 01-1.388-.88 3.737 3.737 0 01-.88-1.388m2.268 2.268L7.288 19.67m0 0a9.024 9.024 0 01-1.652-1.306 9.027 9.027 0 01-1.306-1.652m0 0l4.138-3.448M4.33 16.712a9.014 9.014 0 010-9.424m4.138 5.976a3.765 3.765 0 010-2.528m0 0c.181-.506.475-.982.88-1.388a3.736 3.736 0 011.388-.88m-2.268 2.268L4.33 7.288m6.406 1.18L7.288 4.33m0 0a9.024 9.024 0 00-1.652 1.306A9.025 9.025 0 004.33 7.288" />
+                                </svg>
+                                <a href="javascript:void(0)" class="inline-block text-lg font-semibold">IOS App
+                                    Designer</a>
+                                <p class="text-slate-400 font-semibold text-md mt-3 mb-5">The phrasal sequence of the is
+                                    now so that many campaign and benefit</p>
+                                <a href="javascript:void(0)"
+                                    class="inline-block text-indigo-600 text-base font-semibold relative">Read more<span
+                                        class="icon-arrow-right2 text-[11px] ml-2"></span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/2 lg:w-1/3">
+                            <div class="service-items py-6 px-10 mx-3 mt-8 md:mt-0 rounded-xl hover:shadow-xl transition duration-300 ease-out shadow-gray-100 fadeInUp wow"
+                                data-wow-duration="0.7s" data-wow-delay="0.3s">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                    stroke="currentColor"
+                                    class="w-[70px] h-[70px] text-indigo-600 bg-indigo-600/10 p-5 rounded-lg shadow-md mb-7">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z" />
+                                </svg>
+                                <a href="javascript:void(0)" class="inline-block text-lg font-semibold">Photography</a>
+                                <p class="text-slate-400 font-semibold text-md mt-3 mb-5">The phrasal sequence of the is
+                                    now so that many campaign and benefit</p>
+                                <a href="javascript:void(0)"
+                                    class="inline-block text-indigo-600 text-base font-semibold relative">Read more<span
+                                        class="icon-arrow-right2 text-[11px] ml-2"></span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/2 lg:w-1/3">
+                            <div class="service-items py-6 px-10 mx-3 shadow-xl shadow-gray-100 rounded-xl mt-8 md:mt-0 lg:mt-8 fadeInUp wow"
+                                data-wow-duration="0.7s" data-wow-delay="0.4s">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                    stroke="currentColor"
+                                    class="w-[70px] h-[70px] text-indigo-600 bg-indigo-600/10 p-5 rounded-lg shadow-md mb-7">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
+                                </svg>
+                                <a href="javscript:void(0)" class="inline-block text-lg font-semibold">Graphic
+                                    Designer</a>
+                                <p class="text-slate-400 font-semibold text-md mt-3 mb-5">The phrasal sequence of the is
+                                    now so that many campaign and benefit</p>
+                                <a href="javascript:void(0)"
+                                    class="inline-block text-indigo-600 text-base font-semibold relative">Read more<span
+                                        class="icon-arrow-right2 text-[11px] ml-2"></span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/2 lg:w-1/3">
+                            <div class="service-items py-6 px-10 mx-3 rounded-xl mt-8 hover:shadow-xl transition duration-300 ease-out shadow-gray-100 fadeInUp wow"
+                                data-wow-duration="0.7s" data-wow-delay="0.5s">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                    stroke="currentColor"
+                                    class="w-[70px] h-[70px] text-indigo-600 bg-indigo-600/10 p-5 rounded-lg shadow-md mb-7">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M10.343 3.94c.09-.542.56-.94 1.11-.94h1.093c.55 0 1.02.398 1.11.94l.149.894c.07.424.384.764.78.93.398.164.855.142 1.205-.108l.737-.527a1.125 1.125 0 011.45.12l.773.774c.39.389.44 1.002.12 1.45l-.527.737c-.25.35-.272.806-.107 1.204.165.397.505.71.93.78l.893.15c.543.09.94.56.94 1.109v1.094c0 .55-.397 1.02-.94 1.11l-.893.149c-.425.07-.765.383-.93.78-.165.398-.143.854.107 1.204l.527.738c.32.447.269 1.06-.12 1.45l-.774.773a1.125 1.125 0 01-1.449.12l-.738-.527c-.35-.25-.806-.272-1.203-.107-.397.165-.71.505-.781.929l-.149.894c-.09.542-.56.94-1.11.94h-1.094c-.55 0-1.019-.398-1.11-.94l-.148-.894c-.071-.424-.384-.764-.781-.93-.398-.164-.854-.142-1.204.108l-.738.527c-.447.32-1.06.269-1.45-.12l-.773-.774a1.125 1.125 0 01-.12-1.45l.527-.737c.25-.35.273-.806.108-1.204-.165-.397-.505-.71-.93-.78l-.894-.15c-.542-.09-.94-.56-.94-1.109v-1.094c0-.55.398-1.02.94-1.11l.894-.149c.424-.07.765-.383.93-.78.165-.398.143-.854-.107-1.204l-.527-.738a1.125 1.125 0 01.12-1.45l.773-.773a1.125 1.125 0 011.45-.12l.737.527c.35.25.807.272 1.204.107.397-.165.71-.505.78-.929l.15-.894z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                </svg>
+                                <a href="javascript:void(0)" class="inline-block text-lg font-semibold">Web Security</a>
+                                <p class="text-slate-400 font-semibold text-md mt-3 mb-5">The phrasal sequence of the is
+                                    now so that many campaign and benefit</p>
+                                <a href="javascript:void(0)"
+                                    class="inline-block text-indigo-600 text-base font-semibold relative">Read more<span
+                                        class="icon-arrow-right2 text-[11px] ml-2"></span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/2 lg:w-1/3">
+                            <div class="service-items py-6 px-10 mx-3 shadow-xl shadow-gray-100 rounded-xl mt-8 fadeInUp wow"
+                                data-wow-duration="0.7s" data-wow-delay="0.6s">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                    stroke="currentColor"
+                                    class="w-[70px] h-[70px] text-indigo-600 bg-indigo-600/10 p-5 rounded-lg shadow-md mb-7">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 01-.923 1.785A5.969 5.969 0 006 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337z" />
+                                </svg>
+                                <a href="javascript:void(0)" class="inline-block text-lg font-semibold">24/7 Support</a>
+                                <p class="text-slate-400 font-semibold text-md mt-3 mb-5">The phrasal sequence of the is
+                                    now so that many campaign and benefit</p>
+                                <a href="javascript:void(0)"
+                                    class="inline-block text-indigo-600 text-base font-semibold relative">Read more<span
+                                        class="icon-arrow-right2 text-[11px] ml-2"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- OUR-TEAM -->
+
+        <section
+            class="our-team bg-[url('../img/team.jpg')] bg-cover bg-no-repeat bg-center relative z-10 py-36 mt-14 animate__zoomIn animate__animated wow">
+            <div class="bg-slate-900/70 inset-0 absolute -z-10"></div>
+            <div class="container mx-auto">
+                <div class="our-team-title text-center bounceIn wow" data-wow-delay="0.4s">
+                    <h2 class="text-3xl text-white font-semibold mb-5">Stop leaving money on the table.</h2>
+                    <p class="text-white/80 max-w-xl mx-auto font-semibold">Start working with Techwind that can provid
+                        evrything you need to generate awareness, drive traffic, connect. </p>
+                    <a href="javascipt:void(0)"
+                        class="bg-white text-indigo-600 inline-block p-7 rounded-full mt-10 relative">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                            <path fill-rule="evenodd"
+                                d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <div class="bg-white w-full h-full absolute top-0 left-0 animate-ping rounded-full"></div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- PORTFOLIO -->
+
+        <section class="portfolio my-16">
+            <div class="container mx-auto">
+                <div class="portfolio-title text-center bounceIn wow">
+                    <h5 class="font-bold text-indigo-600 text-sm">PORTFOLIO</h5>
+                    <h2 class="text-4xl font-semibold my-5">Our Works & Projects</h2>
+                    <p class="text-base text-gray-400 font-semibold max-w-xl mx-auto">Obeviously I'm a Web Desigrner.
+                        Experienced with all stages of the development cycle for dynamic web project.</p>
+                </div>
+                <div class="portfolio-inner mt-10">
+                    <div class="flex flex-wrap">
+                        <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4">
+                            <div class="portfolio-items relative mx-3 wow fadeInUpBig mb-6 overflow-hidden">
+                                <div class="portfolio-img overflow-hidden">
+                                    <img src="../img/portfolio-1.jpg" alt="portfolio-1" title="portfolio-1"
+                                        class="inline-block rounded-md hover:brightness-75 hover:rotate-6 hover:scale-110 transition duration-300 w-full">
+                                </div>
+                                <div class="portfolio-content absolute bottom-4 left-4 text-white hidden">
+                                    <ul>
+                                        <li>
+                                            <a href="javascript:void(0)"
+                                                class="text-lg font-medium hover:text-indigo-600 transition-all ease-linear">Mockup
+                                                Collection</a>
+                                        </li>
+                                        <li class="font-medium text-lg">Abstract</li>
+                                    </ul>
+                                </div>
+                                <a href="javascript:void(0)" class="absolute top-4 right-4 hidden transition duration-200 ease-linear portfolio-cam">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="2" stroke="currentColor"
+                                        class="w-[40px] h-[40px] bg-indigo-600 text-white p-2 rounded-full inline-block">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4">
+                            <div class="portfolio-items relative mx-3 wow fadeInUpBig mb-6" data-wow-delay="0.2s">
+                                <div class="portfolio-img overflow-hidden">
+                                    <img src="../img/portfolio-2.jpg" alt="portfolio-2" title="portfolio-2"
+                                        class="inline-block rounded-md hover:brightness-75 hover:rotate-6 hover:scale-110 transition duration-300 w-full">
+                                </div>
+                                <div class="portfolio-content absolute bottom-4 left-4 text-white hidden">
+                                    <ul>
+                                        <li>
+                                            <a href="javascript:void(0)"
+                                                class="text-lg font-medium hover:text-indigo-600 transition-all ease-linear">Mockup
+                                                Collection</a>
+                                        </li>
+                                        <li class="font-medium text-lg">Abstract</li>
+                                    </ul>
+                                </div>
+                                <a href="javascript:void(0)" class="absolute top-4 right-4 hidden transition duration-200 ease-linear portfolio-cam">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="2" stroke="currentColor"
+                                        class="w-[40px] h-[40px] bg-indigo-600 text-white p-2 rounded-full inline-block">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4">
+                            <div class="portfolio-items relative mx-3 wow fadeInUpBig mb-6" data-wow-delay="0.3s">
+                                <div class="portfolio-img overflow-hidden">
+                                    <img src="../img/portfolio-3.jpg" alt="portfolio-3" title="portfolio-3"
+                                        class="inline-block rounded-md hover:brightness-75 hover:rotate-6 hover:scale-110 transition duration-300 w-full">
+                                </div>
+                                <div class="portfolio-content absolute bottom-4 left-4 text-white hidden">
+                                    <ul>
+                                        <li>
+                                            <a href="javascript:void(0)"
+                                                class="text-lg font-medium hover:text-indigo-600 transition-all ease-linear">Mockup
+                                                Collection</a>
+                                        </li>
+                                        <li class="font-medium text-lg">Abstract</li>
+                                    </ul>
+                                </div>
+                                <a href="javascript:void(0)" class="absolute top-4 right-4 hidden transition duration-200 ease-linear portfolio-cam">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="2" stroke="currentColor"
+                                        class="w-[40px] h-[40px] bg-indigo-600 text-white p-2 rounded-full inline-block">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4">
+                            <div class="portfolio-items relative mx-3 wow lg:mt-0 fadeInUpBig" data-wow-delay="0.4s">
+                                <div class="portfolio-img overflow-hidden">
+                                    <img src="../img/portfolio-4.jpg" alt="portfolio-4" title="portfolio-4"
+                                        class="inline-block rounded-md hover:brightness-75 hover:rotate-6 hover:scale-110 transition duration-300 w-full">
+                                </div>
+                                <div class="portfolio-content absolute bottom-4 left-4 text-white hidden">
+                                    <ul>
+                                        <li>
+                                            <a href="javascript:void(0)"
+                                                class="text-lg font-medium hover:text-indigo-600 transition-all ease-linear">Mockup
+                                                Collection</a>
+                                        </li>
+                                        <li class="font-medium text-lg">Abstract</li>
+                                    </ul>
+                                </div>
+                                <a href="javascript:void(0)" class="absolute top-4 right-4 hidden transition duration-200 ease-linear portfolio-cam">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="2" stroke="currentColor"
+                                        class="w-[40px] h-[40px] bg-indigo-600 text-white p-2 rounded-full inline-block">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4">
+                            <div class="portfolio-items relative mx-3 mt-6 md:mt-0 wow fadeInUpBig"
+                                data-wow-delay="0.5s">
+                                <div class="portfolio-img overflow-hidden">
+                                    <img src="../img/portfolio-5.jpg" alt="portfolio-5" title="portfolio-5"
+                                        class="inline-block rounded-md hover:brightness-75 hover:rotate-6 hover:scale-110 transition duration-300 w-full">
+                                </div>
+                                <div class="portfolio-content absolute bottom-4 left-4 text-white hidden">
+                                    <ul>
+                                        <li>
+                                            <a href="javascript:void(0)"
+                                                class="text-lg font-medium hover:text-indigo-600 transition-all ease-linear">Mockup
+                                                Collection</a>
+                                        </li>
+                                        <li class="font-medium text-lg">Abstract</li>
+                                    </ul>
+                                </div>
+                                <a href="javascript:void(0)" class="absolute top-4 right-4 hidden transition duration-200 ease-linear portfolio-cam">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="2" stroke="currentColor"
+                                        class="w-[40px] h-[40px] bg-indigo-600 text-white p-2 rounded-full inline-block">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4">
+                            <div class="portfolio-items relative mx-3 mt-6 md:mt-0 wow fadeInUpBig"
+                                data-wow-delay="0.6s">
+                                <div class="portfolio-img overflow-hidden">
+                                    <img src="../img/portfolio-6.jpg" alt="portfolio-6" title="portfolio-6"
+                                        class="inline-block rounded-md hover:brightness-75 hover:rotate-6 hover:scale-110 transition duration-300 w-full">
+                                </div>
+                                <div class="portfolio-content absolute bottom-4 left-4 text-white hidden">
+                                    <ul>
+                                        <li>
+                                            <a href="javascript:void(0)"
+                                                class="text-lg font-medium hover:text-indigo-600 transition-all ease-linear">Mockup
+                                                Collection</a>
+                                        </li>
+                                        <li class="font-medium text-lg">Abstract</li>
+                                    </ul>
+                                </div>
+                                <a href="javascript:void(0)" class="absolute top-4 right-4 hidden transition duration-200 ease-linear portfolio-cam">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="2" stroke="currentColor"
+                                        class="w-[40px] h-[40px] bg-indigo-600 text-white p-2 rounded-full inline-block">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4">
+                            <div class="portfolio-items relative mx-3 mt-6 wow xl:mt-0 fadeInUpBig"
+                                data-wow-delay="0.7s">
+                                <div class="portfolio-img overflow-hidden">
+                                    <img src="../img/portfolio-7.jpg" alt="portfolio-7" title="portfolio-7"
+                                        class="inline-block rounded-md hover:brightness-75 hover:rotate-6 hover:scale-110 transition duration-300 w-full">
+                                </div>
+                                <div class="portfolio-content absolute bottom-4 left-4 text-white hidden">
+                                    <ul>
+                                        <li>
+                                            <a href="javascript:void(0)"
+                                                class="text-lg font-medium hover:text-indigo-600 transition-all ease-linear">Mockup
+                                                Collection</a>
+                                        </li>
+                                        <li class="font-medium text-lg">Abstract</li>
+                                    </ul>
+                                </div>
+                                <a href="javascript:void(0)" class="absolute top-4 right-4 hidden transition duration-200 ease-linear portfolio-cam">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="2" stroke="currentColor"
+                                        class="w-[40px] h-[40px] bg-indigo-600 text-white p-2 rounded-full inline-block">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4">
+                            <div class="portfolio-items relative mx-3 mt-6 wow xl:mt-0 fadeInUpBig"
+                                data-wow-delay="0.8s">
+                                <div class="portfolio-img overflow-hidden">
+                                    <img src="../img/portfolio-8.jpg" alt="portfolio-8" title="portfolio-8"
+                                        class="inline-block rounded-md hover:brightness-75 hover:rotate-6 hover:scale-110 transition duration-300 w-full">
+                                </div>
+                                <div class="portfolio-content absolute bottom-4 left-4 text-white hidden">
+                                    <ul>
+                                        <li>
+                                            <a href="javascript:void(0)"
+                                                class="text-lg font-medium hover:text-indigo-600 transition duration-300 ease-linear">Mockup
+                                                Collection</a>
+                                        </li>
+                                        <li class="font-medium text-lg">Abstract</li>
+                                    </ul>
+                                </div>
+                                <a href="javascript:void(0)" class="absolute top-4 right-4 hidden transition duration-200 ease-linear portfolio-cam">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="2" stroke="currentColor"
+                                        class="w-[40px] h-[40px] bg-indigo-600 text-white p-2 rounded-full inline-block">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- REVIEW -->
+
+        <section class="review overflow-hidden">
+            <div class="container mx-auto">
+                <div class="review-title text-center">
+                    <h2 class="text-4xl font-semibold my-5">What Our User Say</h2>
+                    <p class="text-base text-gray-400 font-semibold max-w-xl mx-auto">Start working with Techwind that
+                        can provide everything you need to generate awareness, drive traffic, connect.</p>
+                </div>
+                <div class="review-inner mt-16">
+                    <div class="slider autoplay">
+                        <div class="review-items text-center">
+                            <div class="review-content p-10 mx-3 shadow rounded h-60 relative">
+                                <span class="icon-quote-left text-indigo-600 text-3xl"></span>
+                                <p class="text-slate-400 my-3">" It seems that only fragments of the original text
+                                    remain in the Lorem Ipsum texts used today. "</p>
+                                <span class="icon-star text-yellow-500"></span>
+                                <span class="icon-star text-yellow-500"></span>
+                                <span class="icon-star text-yellow-500"></span>
+                                <span class="icon-star text-yellow-500"></span>
+                                <span class="icon-star text-yellow-500"></span>
+                            </div>
+                            <div class="review-img">
+                                <img src="../img/customer-1.jpg" alt="customer-1" title="customer-1"
+                                    class="shadow-lg w-16 h-16 rounded-full inline-block my-7 mx-auto">
+                                <h5 class="font-semibold text-base mb-1">Calvin Carlo</h5>
+                                <p class="text-slate-400 text-sm">Manager</p>
+                            </div>
+                        </div>
+                        <div class="review-items text-center">
+                            <div class="review-content p-10 mx-3 shadow rounded h-60 relative">
+                                <span class="icon-quote-left text-indigo-600 text-3xl"></span>
+                                <p class="text-slate-400 my-3">" The most well-known dummy text is the 'Lorem Ipsum',
+                                    which is said to have originated in the 16th century. "</p>
+                                <span class="icon-star text-yellow-500"></span>
+                                <span class="icon-star text-yellow-500"></span>
+                                <span class="icon-star text-yellow-500"></span>
+                                <span class="icon-star text-yellow-500"></span>
+                                <span class="icon-star text-yellow-500"></span>
+                            </div>
+                            <div class="review-img">
+                                <img src="../img/customer-2.jpg" alt="customer-2" title="customer-2"
+                                    class="shadow-lg w-16 h-16 rounded-full inline-block my-7 mx-auto">
+                                <h5 class="font-semibold text-base mb-1">Christa Smith</h5>
+                                <p class="text-slate-400 text-sm">Manager</p>
+                            </div>
+                        </div>
+                        <div class="review-items text-center">
+                            <div class="review-content p-10 mx-3 shadow rounded h-60 relative">
+                                <span class="icon-quote-left text-indigo-600 text-3xl"></span>
+                                <p class="text-slate-400 my-3">" One disadvantage of Lorum Ipsum is that in Latin
+                                    certain letters appear more frequently than others. "</p>
+                                <span class="icon-star text-yellow-500"></span>
+                                <span class="icon-star text-yellow-500"></span>
+                                <span class="icon-star text-yellow-500"></span>
+                                <span class="icon-star text-yellow-500"></span>
+                                <span class="icon-star text-yellow-500"></span>
+                            </div>
+                            <div class="review-img">
+                                <img src="../img/customer-3.jpg" alt="customer-3" title="customer-3"
+                                    class="shadow-lg w-16 h-16 rounded-full inline-block my-7 mx-auto">
+                                <h5 class="font-semibold text-base mb-1">Jemina CLone</h5>
+                                <p class="text-slate-400 text-sm">Manager</p>
+                            </div>
+                        </div>
+                        <div class="review-items text-center">
+                            <div class="review-content p-10 mx-3 shadow rounded h-60 relative">
+                                <span class="icon-quote-left text-indigo-600 text-3xl"></span>
+                                <p class="text-slate-400 my-3">" Thus, Lorem Ipsum has only limited suitability as a
+                                    visual filler for German texts. "</p>
+                                <span class="icon-star text-yellow-500"></span>
+                                <span class="icon-star text-yellow-500"></span>
+                                <span class="icon-star text-yellow-500"></span>
+                                <span class="icon-star text-yellow-500"></span>
+                                <span class="icon-star text-yellow-500"></span>
+                            </div>
+                            <div class="review-img">
+                                <img src="../img/customer-4.jpg" alt="customer-4" title="customer-4"
+                                    class="shadow-lg w-16 h-16 rounded-full inline-block my-7 mx-auto">
+                                <h5 class="font-semibold text-base mb-1">Smith Vodka</h5>
+                                <p class="text-slate-400 text-sm">Manager</p>
+                            </div>
+                        </div>
+                        <div class="review-items text-center">
+                            <div class="review-content p-10 mx-3 shadow rounded h-60 relative">
+                                <span class="icon-quote-left text-indigo-600 text-3xl"></span>
+                                <p class="text-slate-400 my-3">" There is now an abundance of readable dummy texts.
+                                    These are usually used when a text is required. "</p>
+                                <span class="icon-star text-yellow-500"></span>
+                                <span class="icon-star text-yellow-500"></span>
+                                <span class="icon-star text-yellow-500"></span>
+                                <span class="icon-star text-yellow-500"></span>
+                                <span class="icon-star text-yellow-500"></span>
+                            </div>
+                            <div class="review-img">
+                                <img src="../img/customer-5.jpg" alt="customer-5" title="customer-5"
+                                    class="shadow-lg w-16 h-16 rounded-full inline-block my-7 mx-auto">
+                                <h5 class="font-semibold text-base mb-1">Cristino Murfi</h5>
+                                <p class="text-slate-400 text-sm">Manager</p>
+                            </div>
+                        </div>
+                        <div class="review-items text-center">
+                            <div class="review-content p-10 mx-3 shadow rounded h-60 relative">
+                                <span class="icon-quote-left text-indigo-600 text-3xl"></span>
+                                <p class="text-slate-400 my-3">" According to most sources, Lorum Ipsum can be traced
+                                    back to a text composed by Cicero. "</p>
+                                <span class="icon-star text-yellow-500"></span>
+                                <span class="icon-star text-yellow-500"></span>
+                                <span class="icon-star text-yellow-500"></span>
+                                <span class="icon-star text-yellow-500"></span>
+                                <span class="icon-star text-yellow-500"></span>
+                            </div>
+                            <div class="review-img">
+                                <img src="../img/customer-6.jpg" alt="customer-6" title="customer-6"
+                                    class="shadow-lg w-16 h-16 rounded-full inline-block my-7 mx-auto">
+                                <h5 class="font-semibold text-base mb-1">Cristino Murfi</h5>
+                                <p class="text-slate-400 text-sm">Manager</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BLOG -->
+
+        <section class="blog mt-20">
+            <div class="container mx-auto">
+                <div class="blog-title text-center bounceIn wow">
+                    <h5 class="font-bold text-indigo-600 text-sm">BLOG</h5>
+                    <h2 class="text-4xl font-semibold my-5">Latest News</h2>
+                    <p class="text-base text-gray-400 font-semibold max-w-xl mx-auto">Obeviously I'm a Web Desigrner.
+                        Experienced with all stages of the development cycle for dynamic web project.</p>
+                </div>
+                <div class="blog-inner mt-16">
+                    <div class="flex flex-wrap">
+                        <div class="w-full md:w-1/2 lg:w-1/3">
+                            <div class="blog-items mx-4 mb-8 rounded-md shadow animate__flipInY animate__animated wow">
+                                <div class="blog-img">
+                                    <img src="../img/blog-1.jpg" alt="blog-1" title="blog-1"
+                                        class="w-full inline-block">
+                                </div>
+                                <div class="blog-content p-7">
+                                    <a href="javascript:void(0)"
+                                        class="text-lg font-semibold hover:text-indigo-600 transition duration-300 ease-out">Design
+                                        your apps in your own way</a>
+                                    <p class="mt-3 mb-4 text-slate-400">The phrasal sequence of the is now so that many
+                                        campaign and benefit</p>
+                                    <a href="javascript:void(0)"
+                                        class="hover:text-indigo-600 transition duration-300 ease-out relative">Read
+                                        More<span class="icon-arrow-right2 text-[11px] ml-2"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/2 lg:w-1/3">
+                            <div class="blog-items mx-4 mb-8 rounded-md shadow animate__flipInY animate__animated wow"
+                                data-wow-delay="0.2s">
+                                <div class="blog-img">
+                                    <img src="../img/blog-2.jpg" alt="blog-2" title="blog-2"
+                                        class="w-full inline-block">
+                                </div>
+                                <div class="blog-content p-7">
+                                    <a href="javascript:void(0)"
+                                        class="text-lg font-semibold hover:text-indigo-600 transition duration-300 ease-out">How
+                                        apps is changing the IT world</a>
+                                    <p class="mt-3 mb-4 text-slate-400">The phrasal sequence of the is now so that many
+                                        campaign and benefit</p>
+                                    <a href="javascript:void(0)"
+                                        class="hover:text-indigo-600 transition duration-300 ease-out relative">Read
+                                        More<span class="icon-arrow-right2 text-[11px] ml-2"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/2 lg:w-1/3">
+                            <div class="blog-items mx-4 rounded-md shadow animate__flipInY animate__animated wow"
+                                data-wow-delay="0.4s">
+                                <div class="blog-img">
+                                    <img src="../img/blog-3.jpg" alt="blog-3" title="blog-3"
+                                        class="w-full inline-block">
+                                </div>
+                                <div class="blog-content p-7">
+                                    <a href="javascript:void(0)"
+                                        class="text-lg font-semibold hover:text-indigo-600 transition duration-300 ease-out">Smartest
+                                        Applications for Business</a>
+                                    <p class="mt-3 mb-4 text-slate-400">The phrasal sequence of the is now so that many
+                                        campaign and benefit</p>
+                                    <a href="javascript:void(0)"
+                                        class="hover:text-indigo-600 transition duration-300 ease-out relative">Read
+                                        More<span class="icon-arrow-right2 text-[11px] ml-2"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT-US -->
+
+        <section class="contact-us my-20">
+            <div class="container mx-auto">
+                <div class="contact-us-title text-center bounceIn wow">
+                    <h5 class="text-indigo-600 font-bold text-sm mb-3">CONTACT US</h5>
+                    <h2 class="text-3xl font-semibold">Have Question ? Get in touch!</h2>
+                    <p class="max-w-xl mx-auto mt-5 mb-7 text-slate-600 font-semibold">Obeviously I'm a Web Designer.
+                        Experienced with all stages of the development cycle for dynamic web projects.</p>
+                    <a href="javascript:void(0)"
+                        class="bg-indigo-600 text-white font-semibold px-6 py-2 inline-block rounded-md hover:bg-indigo-800 transition duration-500 ease-out"><span
+                            class="icon-phone mr-2 align-middle inline-block"></span>Conatct Me</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+
+    <footer class="bg-black">
+        <div class="container mx-auto">
+            <div class="flex flex-wrap py-16">
+                <div class="w-full md:w-1/2 lg:w-full xl:w-1/4">
+                    <div class="footer-items mb-10 md:ml-5">
+                        <img src="../img/logo.png" alt="logo" title="logo" class="inline-block">
+                        <p class="text-slate-400 my-7">Start working with Tailwind CSS that can provide everything you
+                            need to generate awareness, drive traffic, connect.</p>
+                        <ul class="flex">
+                            <li>
+                                <a href="javascript:void(0)"
+                                    class="text-white border-white/20 text-sm border p-[6px] rounded w-7 h-7 inline-block hover:bg-indigo-600 transition duration-300 ease-out"><span
+                                        class="icon-cart"></span></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)"
+                                    class="text-white border-white/20 text-sm border p-[6px] rounded ml-1 w-7 h-7 inline-block hover:bg-indigo-600 transition duration-300 ease-out"><span
+                                        class="icon-dribbble"></span></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)"
+                                    class="text-white border-white/20 text-sm border p-[6px] rounded ml-1 w-7 h-7 inline-block hover:bg-indigo-600 transition duration-300 ease-out"><span
+                                        class="icon-behance"></span></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)"
+                                    class="text-white border-white/20 text-sm border p-[6px] rounded ml-1 w-7 h-7 inline-block hover:bg-indigo-600 transition duration-300 ease-out"><span
+                                        class="icon-linkedin"></span></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)"
+                                    class="text-white border-white/20 text-sm border p-[6px] rounded ml-1 w-7 h-7 inline-block hover:bg-indigo-600 transition duration-300 ease-out"><span
+                                        class="icon-facebook"></span></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)"
+                                    class="text-white border-white/20 text-sm border p-[6px] rounded ml-1 w-7 h-7 inline-block hover:bg-indigo-600 transition duration-300 ease-out"><span
+                                        class="icon-instagram"></span></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)"
+                                    class="text-white border-white/20 text-sm border p-[6px] rounded ml-1 w-7 h-7 inline-block hover:bg-indigo-600 transition duration-300 ease-out"><span
+                                        class="icon-twitter"></span></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)"
+                                    class="text-white border-white/20 text-sm border p-[6px] rounded ml-1 w-7 h-7 inline-block hover:bg-indigo-600 transition duration-300 ease-out"><span
+                                        class="icon-mail"></span></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)"
+                                    class="text-white border-white/20 text-sm border p-[6px] rounded ml-1 w-7 h-7 inline-block hover:bg-indigo-600 transition duration-300 ease-out"><span
+                                        class="icon-file-o"></span></a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+                <div class="w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4">
+                    <div class="footer-items md:ml-12 xl:ml-16">
+                        <h4 class="text-white font-semibold text-lg">Company</h4>
+                        <ul class="mt-5">
+                            <li>
+                                <a href="javascript:void(0)"
+                                    class="text-slate-400 inline-block mb-3 font-semibold hover:opacity-80 transition duration-300"><span
+                                        class="icon-keyboard_arrow_right align-middle mr-1"></span>About-us</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)"
+                                    class="text-slate-400 inline-block mb-3 font-semibold hover:opacity-80 transition duration-300"><span
+                                        class="icon-keyboard_arrow_right align-middle mr-1"></span>Services</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)"
+                                    class="text-slate-400 inline-block mb-3 font-semibold hover:opacity-80 transition duration-300"><span
+                                        class="icon-keyboard_arrow_right align-middle mr-1"></span>Team</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)"
+                                    class="text-slate-400 inline-block mb-3 font-semibold hover:opacity-80 transition duration-300"><span
+                                        class="icon-keyboard_arrow_right align-middle mr-1"></span>Pricing</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)"
+                                    class="text-slate-400 inline-block mb-3 font-semibold hover:opacity-80 transition duration-300"><span
+                                        class="icon-keyboard_arrow_right align-middle mr-1"></span>Project</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)"
+                                    class="text-slate-400 inline-block mb-3 font-semibold hover:opacity-80 transition duration-300"><span
+                                        class="icon-keyboard_arrow_right align-middle mr-1"></span>Blog</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)"
+                                    class="text-slate-400 inline-block mb-3 font-semibold hover:opacity-80 transition duration-300"><span
+                                        class="icon-keyboard_arrow_right align-middle mr-1"></span>Login</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4">
+                    <div class="footer-items mr-16 md:mt-8 lg:mt-0">
+                        <h4 class="text-white text-lg font-semibold">Uselfull Links</h4>
+                        <ul class="mt-5">
+                            <li>
+                                <a href="javascript:void(0)"
+                                    class="text-slate-400 font-semibold mb-3 inline-block hover:opacity-80 transition duration-300"><span
+                                        class="icon-keyboard_arrow_right align-middle mr-1"></span>Terms of Services</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)"
+                                    class="text-slate-400 font-semibold mb-3 inline-block hover:opacity-80 transition duration-300"><span
+                                        class="icon-keyboard_arrow_right align-middle mr-1"></span>Privacy Policy</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)"
+                                    class="text-slate-400 font-semibold mb-3 inline-block hover:opacity-80 transition duration-300"><span
+                                        class="icon-keyboard_arrow_right align-middle mr-1"></span>Documentaion</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)"
+                                    class="text-slate-400 font-semibold mb-3 inline-block hover:opacity-80 transition duration-300"><span
+                                        class="icon-keyboard_arrow_right align-middle mr-1"></span>Changelog</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)"
+                                    class="text-slate-400 font-semibold mb-3 inline-block hover:opacity-80 transition duration-300"><span
+                                        class="icon-keyboard_arrow_right align-middle mr-1"></span>Widget</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4">
+                    <div class="footer-items mx-7 text-center md:mt-8 lg:ml-5 md:text-start lg:mt-0">
+                        <h4 class="text-white font-semibold text-lg">Newsletter</h4>
+                        <p class="text-slate-400 my-5">Sign up and receive the latest tips via email.</p>
+                        <form class="relative">
+                            <label class="text-slate-400 w-full">Write your email <span
+                                    class="text-red-600">*</span></label>
+                            <span class="icon-mail text-slate-400 inline-block absolute top-12 left-3"></span>
+                            <input type="email" placeholder="Email" required
+                                class="w-full bg-slate-900/50 text-white py-2 rounded my-3 pl-11">
+                            <button
+                                class="bg-indigo-600 px-[86px] inline-block py-2 rounded text-white font-semibold hover:bg-indigo-800 transition duration-500 ease-out w-full">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright border-t border-white/10 py-8">
+            <div class="container mx-auto">
+                <div class="copyright-items flex flex-wrap text-center lg:text-start lg:flex-nowrap">
+                    <p class="text-slate-400 w-full">© 2023 Techwind. Design with by ❤️<a
+                            href="javascript:void(0)">Shreethemes</a>.</p>
+                    <ul class="flex justify-center w-full mt-5 lg:mt-0 lg:justify-end">
+                        <li>
+                            <a href="javascript:void(0)" class="inline-block"><img src="../img/copyright-1.png"
+                                    alt="copyright-1" title="copyright-1" class="inline-block max-h-6"></a>
+                        </li>
+                        <li class="ml-1">
+                            <a href="javascript:void(0)" class="inline-block"><img src="../img/copyright-2.png"
+                                    alt="copyright-2" title="copyright-2" class="inline-block max-h-6"></a>
+                        </li>
+                        <li class="ml-1">
+                            <a href="javascript:void(0)" class="inline-block"><img src="../img/copyright-3.png"
+                                    alt="copyright-3" title="copyright-3" class="inline-block max-h-6"></a>
+                        </li>
+                        <li class="ml-1">
+                            <a href="javascript:void(0)" class="inline-block"><img src="../img/copyright-4.png"
+                                    alt="copyright-4" title="copyright-4" class="inline-block max-h-6"></a>
+                        </li>
+                        <li class="ml-1">
+                            <a href="javascript:void(0)" class="inline-block"><img src="../img/copyright-5.png"
+                                    alt="copyright-5" title="copyright-5" class="inline-block max-h-6"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BACK-TO-TOP -->
+
+    <a href="#top" class="back-to-top bg-indigo-600 text-white p-3 rounded-full fixed bottom-3 right-3 hidden z-10">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="w-6 h-6 inline-block">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 19.5v-15m0 0l-6.75 6.75M12 4.5l6.75 6.75" />
+        </svg>
+    </a>
+
+    <script src="../js/jquery-3.7.0.min.js" type="text/javascript"></script>
+    <script src="../js/wow.min.js" type="text/javascript"></script>
+    <script src="../js/slick.min.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+            $(".toggle-menu").click(function () {
+                $("nav").slideToggle();
+            });
+            $(".back-to-top").click(function () {
+                $("html").animate({ scrollTop: 0 });
+            });
+        });
+
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 0) {
+                $("header").addClass("header-active");
+                $("header nav ul li a").addClass("header-a-active");
+                $("header .light").addClass("light-active");
+                $("header .dark").addClass("dark-active");
+                $(".back-to-top").fadeIn();
+                $(".icon").addClass("icon-active");
+            }
+            else {
+                $("header").removeClass("header-active");
+                $("header .light").removeClass("light-active");
+                $("header .dark").removeClass("dark-active");
+                $("header nav a").removeClass("header-a-active");
+                $(".back-to-top").fadeOut();
+                $(".icon").removeClass("icon-active");
+            }
+        });
+
+    </script>
+    <script>
+
+        new WOW().init();
+
+        $('.autoplay').slick({
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 2500,
+            dots: true,
+            responsive: [
+                {
+                    breakpoint: 992,
+                    settings: {
+                        arrows: false,
+                        centerMode: true,
+                        centerPadding: '40px',
+                        slidesToShow: 2
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        arrows: false,
+                        centerMode: true,
+                        centerPadding: '40px',
+                        slidesToShow: 1
+                    }
+                },
+            ]
+        });
+    </script>
+</body>
+
+</html>
